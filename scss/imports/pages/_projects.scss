@@ -1,0 +1,119 @@
+.project-top {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 6rem;
+  border-bottom: 2px solid rgba($black-color, 0.2);
+  &__text {
+    width: 70%;
+    h2 {
+      @include text(20px, $eb-reg, 4rem, $black-color, uppercase);
+    }
+    p {
+      @include text(16px, arial, 2rem, $black-color, normal);
+      margin: 1rem 4rem 0 0;
+    }
+  }
+  &__dropdown {
+    position: relative;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.selected-text {
+  display: flex;
+  cursor: pointer;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background-color: $black-color;
+  span {
+    @include text(11px, arial, 2rem, $white-color, uppercase);
+  }
+  img {
+    width: 1.5rem;
+  }
+}
+.dropdown-options {
+  position: absolute;
+  top: 7.5rem;
+  width: 100%;
+  max-height: 13rem;
+  overflow: hidden;
+  opacity: 1;
+  z-index: 1;
+  @include transition($t);
+  a {
+    display: block;
+    padding: 1rem 2rem;
+    background-color: $brown-color;
+    @include text(11px, arial, 2rem, $white-color, uppercase);
+    @include transition($t);
+    &:hover {
+      background-color: $dark-blue-color;
+    }
+  }
+  a:not(:last-child) {
+    border-bottom: 1px solid rgba($black-color, 0.3);
+  }
+}
+.options__hidden {
+  opacity: 0;
+  max-height: 0;
+}
+
+.project-body {
+  padding: 6rem 0;
+}
+
+.project-btn-hover {
+  display: flex;
+  i {
+    display: inline-block;
+    width: 2rem;
+    margin-right: 0.8rem;
+    position: relative;
+    @include transition($t);
+     img {
+      @include transition($t);
+    }
+  }
+  span {
+    @include transition($t);
+  }
+  &:hover {
+    i {
+      @include transform(translateX(12rem));
+      img {
+        filter: invert(54%) sepia(67%) saturate(451%) hue-rotate(359deg) brightness(92%) contrast(95%);
+      }
+    }
+    span {
+      @include transform(translateX(-3rem));
+      color: $orange-color;
+    }
+  }
+}
+
+@include sm {
+  .project-top {
+    flex-wrap: wrap;
+    &__text {
+      width: 100%;
+      p {
+        margin: 0.5rem 0;
+      }
+    }
+    &__dropdown {
+      margin-top: 1.5rem;
+      width: 45%;
+      .dropdown-options {
+        top: 4rem;
+      }
+    }
+  }
+
+}
+

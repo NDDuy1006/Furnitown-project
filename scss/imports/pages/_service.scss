@@ -1,0 +1,72 @@
+.--hidden-visibility {
+  visibility: hidden;
+}
+.--no-border {
+  border: none;
+}
+
+.service-top {
+  text-align: center;
+  padding: 2rem 0;
+  &__heading {
+    @include text(3.2rem, $eb-reg, 5rem, $black-color, uppercase);
+    letter-spacing: 1.6px;
+    padding-bottom: 2rem;
+  }
+}
+.service-img {
+  width: 100%;
+  position: relative;
+  img {
+    width: 100%;
+    display: block;
+  }
+}
+.service-body {
+  padding: 2rem;
+  justify-content: space-between;
+  border-bottom: 1px solid #ccc;
+}
+.service-headings {
+  @include text(2.6rem, $eb-reg, 5rem, $black-color, uppercase);
+  letter-spacing: 1.6px;
+}
+.body-message {
+  display: flex;
+  justify-content: space-between;
+  &__paragraph {
+    width: 45%;
+  }
+}
+.service-paragraph {
+ @include text(1.2rem, arial, 2.6rem, $black-color, normal);
+ letter-spacing: 1.6px;
+ padding-bottom: 2rem;
+}
+.service-btns {
+  width: 50%;
+  margin: 1rem 0;
+}
+.service-bottom {
+  padding: 6rem 0;
+}
+.bottom-message {
+  padding: 0 20rem;
+  text-align: center;
+}
+
+@include sm {
+  .body-message {
+    flex-direction: column;
+    &__paragraph {
+      width: 100%;
+    }
+    .service-btns {
+      width: 100%;
+      margin: 1rem 0;
+    }
+  }
+  .bottom-message {
+    padding: 0;
+  }
+}

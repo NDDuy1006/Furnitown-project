@@ -1,0 +1,19 @@
+.preloader {
+  background: #000 url(../../../img/loader.gif) no-repeat center center;
+  background-size: 10%;
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  z-index: 100;
+}
+
+.disappear {
+  animation: vanish 1s forwards;
+}
+
+@include keyframes (vanish) {
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}

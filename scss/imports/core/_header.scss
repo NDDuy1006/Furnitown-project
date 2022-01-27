@@ -1,0 +1,307 @@
+// css header
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: var(--height-header);
+  background: $black-color;
+  z-index: 4;
+  @include transform(translateY(-100%));
+  @include transition($t);
+  .container-fluid {
+    height: 100%;
+    .menu {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      li {
+        position: relative;
+        margin: 0 1rem;
+        // line-height: var(--height-header);
+        
+        a {
+          display: inline-block;
+          height: 100%;
+          padding: 0 2rem;
+          @include text(12px, arial, 4rem, $white-color, uppercase);
+          letter-spacing: 0.04rem;
+          line-height: var(--height-header);
+
+          &::after {
+            content: "";
+            width: 0;
+            height: 2px;
+            background-color: $white-color;
+            position: absolute;
+            bottom: 1rem;
+            left: 0;
+            @include transition($t);
+          }
+          &:hover {
+            &::after {
+              width: 100%
+            }
+          }
+        }
+      }
+      .logo {
+        height: 65px;
+        margin: 0 20px;
+        a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 0;
+          img {
+            height: 100%;
+            filter: invert(1);
+          }
+        }
+      }
+    }
+
+    .menu-mobile {
+      height: 100%;
+      width: 100%;
+      display: none;
+      justify-content: space-between;
+      align-items: center;
+      padding-left: 8px;
+      padding-right: 8px;
+      &__left {
+        min-width: 4rem;
+        display: flex;
+        align-items: center;
+        .span-btn {
+          width: 4rem;
+          height: 100%;
+          position: relative;
+          @include transition($t);
+            &::after {
+              content: "";
+              width: 100%;
+              height: 2px;
+              background-color: $white-color;
+              position: absolute;
+              top: 2rem;
+              left: 0;
+              @include transition($t);
+            }
+            &::before {
+              content: "";
+              width: 100%;
+              height: 2px;
+              background-color: $white-color;
+              position: absolute;
+              bottom: 2rem;
+              left: 0;
+              @include transition($t);
+            }
+          span {
+            display: block;
+            margin: 10px 0;
+            background-color: $white-color;
+            width: 100%;
+            height: 2px;
+          }
+          &.span-btn__active {
+            &::after {
+              top: 1rem;
+              transform: rotate(-45deg) translate(0, 0);
+            }
+            &::before {
+              bottom: 1rem;
+              transform: rotate(45deg) translate(0, 0);
+            }
+            span {
+              opacity: 0;
+            }
+          }
+        }
+        .menu-text {
+          // display: inline-block;
+          height: 100%;
+          margin-left: 8px;
+          @include text(14px, arial, 4rem, $white-color, uppercase);
+        }
+      }
+      &__right {
+        width: 7rem;
+        position: relative;
+        img {
+          @include midimg();
+        }
+      }
+    }
+  }
+  .nav-left {
+    padding: 4rem;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 110vh;
+    width: 50.5rem;
+    z-index: 4;
+    background-color: $black-color;
+    @include transform(translateX(-100%));
+    @include transition($t);
+    &.left-nav__active {
+      @include transform(translateX(0)); 
+    }
+    &__head {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      .brand-name {
+        @include text(14px, $eb-semi-bold, 4rem, $white-color, uppercase);
+      }
+      .links {
+        min-width: 4rem;
+        p {
+          @include text(12px, $eb-reg, 4rem, $white-color, uppercase);
+          display: inline-block;
+        }
+        .facebook-icon {
+          color: white;
+          font-size: 18px;
+          &::before {
+            content: '\f09a';
+          }
+        }
+        .youtube-icon {
+          color: white;
+          font-size: 18px;
+          &::before {
+            content: '\f09a';
+          }
+        }
+      }
+    }
+    &__menu {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 8rem;
+      .left-col {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        &__logo {
+          display: block;
+          padding: 1rem 2rem;
+          border-bottom: solid $white-color 1px;
+          img {
+            width: 5rem;
+          }
+        }
+        &__close-btn {
+          margin-top: 2rem;
+          @include transition(0.2s);
+          &:hover {
+            @include transform(scale(0.8));
+          }
+        }
+      }
+      .right-col {
+        width: calc(100% - 14rem);
+        .nav-menu {
+          margin-top: 3rem;
+          li {
+            margin-bottom: 3rem;
+            position: relative;
+            &::after {
+              content: "";
+              width: 0;
+              height: 1px;
+              background-color: $white-color;
+              position: absolute;
+              bottom: -8px;
+              left: 0;
+              @include transition($t);
+            }
+            &:hover {
+              &::after {
+                @include transition($t);
+                width: 100%
+              }
+              a {
+                @include transition($t);
+                color: $white-color
+              }
+            }
+          }
+          a {
+            @include text(26px, $eb-semi-bold, 4rem, $gray-color, uppercase);
+            @include transition($t);
+            &:hover {
+              color: white;
+              
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include smX {
+    height: 8rem;
+  }
+  @media screen and (max-width: $sm-max) and (orientation: landscape) {
+		height: 8rem;
+	}
+
+  @include sm {
+    height: var(--height-header-sm);
+    position: relative;
+    background: $dark-blue-color;
+    transform: translateY(0);
+    .container-fluid {
+      .menu {
+        display: none;
+      }
+      .menu-mobile {
+        display: flex;
+      }
+    }
+    .btn-menu {
+      display: none;
+    }
+    .nav-left {
+      padding: 1rem;
+      top: var(--height-header-sm);
+      left: 0;
+      width: 100%;
+      height: calc(100vh - var(--height-header-sm));
+      &__head {
+        .brand-name {
+          display: none
+        }
+      }
+      &__menu {
+        margin-top: 4rem;
+        .left-col {
+          display: none
+        }
+        .right-col {
+          width: 100%;
+          .nav-menu {
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.header-slide-down {
+  @include transform(translateY(0));
+}
+
+.translate-active {
+  @include transform(translateX(-100%))
+}
+

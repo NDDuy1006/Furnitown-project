@@ -1,0 +1,252 @@
+.product-details__header {
+  background-color: $white-color;
+  border-bottom: 1px solid #ccc;
+}
+
+.header-flex {
+  height: var(--height-header);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .middle-logo {
+    height: 100%;
+    width: 8%;
+    padding: 0.5rem 0;
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
+
+.arrow-rotate {
+  @include transform(rotate(180deg));
+}
+
+.back-anchor {
+  @include transition($t);
+  &:hover {
+    color: $orange-color;
+    i {
+      @include transform(translateX(-1rem));
+      filter: invert(54%) sepia(67%) saturate(451%) hue-rotate(359deg) brightness(92%) contrast(95%);
+    }
+  }
+}
+
+.product-details-section {
+  border-bottom: 1px solid #ccc;
+}
+
+.--display-none {
+  display: none;
+}
+
+.--black-color {
+  color: $black-color;
+}
+
+.details-box {
+  display: flex;
+  &__showcases {
+    width: 75%;
+    padding: 3rem 0;
+    padding-right: 7rem;
+  }
+  &__description {
+    padding: 1rem 1.5rem;
+    text-align: left;
+    width: 25%;
+    border-left: 1px solid #ccc;
+  }
+}
+.showcase-bottom {
+  bottom: 1rem;
+  user-select: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  &__btn {
+    padding: 0.8rem 2.5rem;
+    @include transition(0.4s);
+    &:hover {
+      background-color: rgba($orange-color, 0.4);
+      @include transition(0.4s);
+    }
+  }
+}
+.--btn-prev {
+  border-bottom: 0.2rem solid $black-color;
+  border-left: 0.2rem solid $black-color;
+  border-top: 0.2rem solid $black-color;
+  border-right: 0.1rem solid $black-color;
+  cursor: pointer;
+  img {
+    transform: rotate(180deg);
+  }
+}
+.--btn-next {
+  border-right: 0.2rem solid $black-color;
+  border-bottom: 0.2rem solid $black-color;
+  border-top: 0.2rem solid $black-color;
+  border-left: 0.1rem solid $black-color;
+  cursor: pointer;
+}
+
+.showcase-img {
+  padding-bottom: 2rem;
+  .image {
+    display: block;
+    img {
+      display: block;
+    }
+  }
+}
+
+
+.product-name {
+  display: block;
+  max-width: 90%;
+  @include text(24px, $eb-reg, 3rem, $black-color, normal);
+  margin: 1rem 0;
+}
+.product-price {
+  @include text(14px, arial, 3rem, $orange-dark-color, uppercase);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 4rem 0;
+}
+.product-information {
+  @include text(14px, arial, 3rem, $black-color, normal);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 4rem;
+  p {
+    margin-bottom: 2rem;
+  }
+}
+
+.short-description {
+  h3 {
+    @include text(14px, arial, 3rem, $black-color, uppercase);
+    font-weight: bold;
+  }
+  p {
+    @include text(12px, arial, 1.5rem, $black-color, normal);
+  }
+}
+
+footer {
+  // margin-top: 2rem;
+}
+
+.related-products-section {
+  padding-top: 6rem;
+}
+.more-products-heading {
+  text-align: center;
+  margin-bottom: 3rem;
+  a {
+    display: inline-block;
+    h2 {
+      @include text(18px, $eb-reg, 1.5rem, $black-color, uppercase);
+    }
+  }
+}
+.--border-bottom {
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 2rem;
+}
+.related-products-collection {
+  margin-bottom: 5rem;
+}
+
+.contact-box {
+  padding: 3rem 20rem;
+  &__text {
+    text-align: center;
+    h2 {
+      @include text(18px, $eb-reg, 4rem, $black-color, uppercase);
+    }
+    p {
+      @include text(14px, arial, 2rem, $black-color, null);
+      margin: 1rem 0;
+    }
+  }
+}
+.common-btns {
+  display: flex;
+  justify-content: space-between;
+  margin: 5rem 0;
+  a {
+    width: 24rem;
+    height: 3.6rem;
+    text-align: center;
+    display: inline-block;
+    user-select: none;
+    border: 1px solid $black-color;
+    @include text(14px, arial, 3.6rem, $black-color, uppercase);
+    @include transition($t);
+    &:hover {
+      background-color: $black-color;
+      color: white;
+    }
+  }
+}
+
+
+@include sm {
+  .product-details__header {
+    display: none;
+  }
+  .details-box {
+    flex-direction: column;
+    &__showcases {
+      width: 100%;
+      padding: 1rem 0;
+    }
+    &__description {
+      width: 100%;
+      border: none;
+    }
+  }
+  .showcase-bottom {
+    display: none;
+  }
+  .col-1-of-3 {
+    width: 100% !important;
+    margin-bottom: 3rem;
+  }
+  .related-products-img {
+    height: 50%;
+  }
+  .contact-box {
+    padding: 2rem;
+  }
+  .common-btns {
+    a {
+      width: 17rem;
+    }
+  }
+}
+
+@include sm {
+  .--img-height {
+    height: 50rem;
+  }
+}
+
+@include xs {
+  .contact {
+    padding: 0;
+    &-btns {
+      a {
+        font-size: 12px;
+        width: 18rem;
+      }
+    }
+  }
+}
+
+

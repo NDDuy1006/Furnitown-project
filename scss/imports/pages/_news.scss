@@ -1,0 +1,75 @@
+.news-display-none {
+  display: none;
+}
+.negative-z-index {
+  z-index: -1;
+}
+.news-wrapper {
+  margin-top: -18rem;
+  // margin-bottom: 4rem;
+}
+.news-heading {
+  @include text(2.6rem, $eb-reg, null, $white-color, uppercase);
+  letter-spacing: 0.5rem;
+  padding-bottom: 6rem;
+}
+.news-articles {
+  padding-top: 6rem;
+  border-top: 1px solid $white-color;
+}
+
+
+.pagination {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding: 8rem 0;
+  &-btns {
+    @include mid();
+  }
+}
+.pagination-btns {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+}
+button {
+  background: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -ms-appearance: none;
+  -moz-appearance: none;
+  border: none;
+  cursor: pointer;
+}
+.page-btn {
+  background: $gray-light-color;
+  color: $black-color;
+  padding: 1rem;
+  text-align: center;
+  -webkit-appearance: none;
+  -ms-appearance: none;
+  -moz-appearance: none;
+  border-radius: 0.2rem;
+  @include text(1.2rem, arial, null, $black-color, uppercase);
+  @include transition($t);
+  &:hover {
+    background: $orange-color;
+    color: $black-color;
+  }
+  &[class$="-page"] {
+    background: $gray-color;
+    color: white;
+    &:hover {
+      background: $orange-color;
+      color: $black-color;
+    }
+  }
+  &[class$="active"] {
+    background: $dark-blue-color;
+    color: $white-color;
+  }
+  @include sm {
+    padding: 0.5rem 1rem;
+  }
+}

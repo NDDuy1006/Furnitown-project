@@ -1,0 +1,59 @@
+.--visibility-hidden {
+  visibility: hidden;
+}
+.news-article {
+  padding-top: 8rem;
+}
+.article-img {
+  position: relative;
+  height: 47rem;
+  overflow: hidden;
+  img {
+    @include midimg();
+  }
+}
+.article-text {
+  padding: 4rem 8rem;
+  &__heading {
+    @include text(1.8rem, $eb-semi-bold, null, $black-color, uppercase);
+    padding-bottom: 2rem;
+  }
+  &__sub-heading {
+    @include text(1.3rem, arial, null, $black-color, uppercase);
+    font-weight: 600;
+  }
+  &__date {
+    @include text(1.2rem, arial, null, $black-color, uppercase);
+    font-style: italic;
+    padding-bottom: 2rem;
+  }
+  &__main-paragraph {
+    @include text(1.2rem, arial, null, $black-color, normal);
+    padding-bottom: 2rem;
+  }
+  ul {
+    padding-bottom: 2rem;
+  }
+  li {
+    @include text(1.2rem, arial, null, $black-color, normal);
+    list-style: disc;
+    margin-left: 4rem;
+  }
+}
+.more-news-articles {
+  padding: 2rem 0;
+  margin-bottom: 4rem;
+}
+.more-news-heading {
+  text-align: center;
+  margin-bottom: 4rem;
+  h2 {
+    @include text(2rem, $eb-semi-bold, null, $black-color, uppercase);
+  }
+}
+
+@include sm {
+  .news-article {
+    padding-top: 4rem;
+  }
+}

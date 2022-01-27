@@ -1,0 +1,122 @@
+.banner {
+  width: 100%;
+  height: 45rem;
+  position: relative;
+
+  img {
+    width: 100%;
+    height: 100%;
+    @include midimg();
+    filter: grayscale(24%) sepia(1%) brightness(40%) saturate(101%) contrast(102%);
+    -webkit-filter: grayscale(25%) sepia(0%) brightness(40%) saturate(100%) contrast(100%);
+    -moz-filter: grayscale(24%) sepia(1%) brightness(40%) saturate(101%) contrast(102%);
+  }
+
+  &-text {
+    position: absolute;
+    width: 50rem;
+    top: 18rem;
+    right: 15%;
+    text-align: right;
+    @include text(24px, $eb-reg, 50.45px, $white-color, uppercase);
+  }
+}
+
+.category-items {
+  .flickity-viewport {
+    height: 36rem !important;
+  }
+  .flickity-slider {
+    // transform: translateX(0.6%) !important;
+  }
+}
+
+.--carousel-height {
+  height: 21rem;
+}
+
+.carousel-status {
+  display: none;
+}
+
+.textbox-flex {
+  display: flex;
+  width: 100%;
+
+  &__number {
+    @include text(9rem, $eb-reg, 13.5rem, $orange-dark-color, uppercase);
+    letter-spacing: -0.4px;
+    width: 8rem;
+    text-align: center;
+  }
+
+  &__text {
+    width: 80%;
+    margin: 2.5rem 10rem 2.5rem 2rem;
+    .category-name {
+      @include text(18px, $eb-semi-bold, 4rem, $black-color, uppercase);
+    }
+    .category-description {
+      // width: 75%;
+      @include text(16px, arial, 2rem, $black-color, normal);
+    }
+  }
+
+  &__btn {
+    width: 15%;
+    margin-top: 8rem;
+    text-align: right;
+  }
+}
+
+@include sm {
+  .banner-text {
+    width: 100%;
+    text-align: center;
+    top: 14rem;
+    right: 0;
+  }
+  .product-categories {
+    margin-top: 1rem;
+  }
+  .items-carousel__cell {
+    width: 100% !important;
+    .--carousel-height {
+      height: 50rem;
+    }
+  }
+
+  .textbox-flex {
+    flex-wrap: wrap;
+    &__number {
+      font-size: 6rem;
+      width: 20%;
+    }
+    &__text {
+      width: 80%;
+      margin: 2rem 0;
+    }
+    &__btn {
+      margin-top: 0;
+      width: 40%;
+      margin-left: 20%;
+    }
+  }
+  .category-items {
+    .flickity-viewport {
+      height: 60rem !important;
+    }
+  }
+}
+
+.item-description {
+  a:hover {
+    h2 {
+      color: $orange-color;
+    }
+  }
+}
+
+
+
+

@@ -1,0 +1,566 @@
+// css img, button, heading, title, input, elements, components...
+img {
+  max-width: 100%;
+  height: auto;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  &.--center {
+    margin: 0 auto;
+    display: block;
+  }
+}
+a {
+  text-decoration: none;
+}
+
+// colors (tuỳ chỉnh)
+.--white-cl {
+  color: $white-color;
+}
+.--black-cl {
+  color: $black-color;
+}
+.--blue-cl {
+  color: $light-blue-color;
+}
+
+// css article (nội dung chi tiết bài viết)
+article {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    // font-family: ib; // font bold
+    display: block;
+  }
+  h1 {
+    font-size: var(--h1-fs);
+    line-height: var(--h1-lh);
+    margin: 0 0 0.67rem 0;
+  }
+  h2 {
+    font-size: var(--h2-fs);
+    line-height: var(--h2-lh);
+    margin: 0 0 0.75rem 0;
+  }
+  h3 {
+    font-size: var(--h3-fs);
+    line-height: var(--h3-lh);
+    margin: 0 0 0.83rem 0;
+  }
+  h4 {
+    font-size: var(--h4-fs);
+    line-height: var(--h4-lh);
+    margin: 0 0 1.12rem 0;
+  }
+  h5 {
+    font-size: var(--h5-fs);
+    line-height: var(--h5-lh);
+    margin: 0 0 1.5rem 0;
+  }
+  h6 {
+    font-size: 0.67rem;
+    margin: 0 0 1.67rem 0;
+  }
+
+  p {
+    margin: 0 0 1.12rem 0;
+  }
+  strong {
+    // font-family: ib; // font bold
+  }
+  ol,
+  ul {
+    list-style: initial;
+    padding-left: 18px;
+  }
+  img {
+    display: inline-block;
+    height: auto;
+    overflow: hidden;
+    border-radius: 10px;
+    margin: 25px auto;
+  }
+  .video {
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+    position: relative;
+    margin: 25px auto;
+    iframe,
+    video {
+      position: absolute;
+      @include size(100%);
+      top: 0;
+      left: 0;
+    }
+  }
+  @include xs {
+    img {
+      margin: 20px auto;
+    }
+  }
+}
+
+@include sm {
+  .text-top {
+    display: none;
+  }
+}
+
+.heading {
+  font-family: $eb-reg;
+  &.--h1 {
+      font-size: var(--h1-fs);
+      line-height: var(--h1-lh);
+  }
+  &.--h2 {
+      font-size: var(--h2-fs);
+      line-height: var(--h2-lh);
+  }
+  &.--h3 {
+      font-size: var(--h3-fs);
+      line-height: var(--h3-lh);
+  }
+}
+
+// slider button animations
+// .slideshow__item {
+//   &-textbox {
+//   }
+// }
+.btn-animated {
+  background: $black-color;
+  outline: none;
+  transition: 0.2s;
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 5px 10px rgba($black-color, 0.4);
+  }
+
+  &:active {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 5px rgba($black-color, 0.4);
+  }
+}
+
+// btn-menu animations
+.btn-menu {
+  position: absolute;
+  top: 27rem;
+  width: 18rem;
+  height: 18rem;
+  background-color: $dark-blue-color;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+  @include sm {
+    display: none;
+  }
+    
+  &__logo {
+    width: 4rem;
+    height: 4rem;
+    margin-bottom: 1rem;
+  }
+    
+  &__nav {
+    width: 4rem;
+    height: 4rem;
+    margin-top: 1px;
+    display: flex;
+    align-items: center;
+
+    .hamburger-nav {
+      width: 100%;
+      height: 1px;
+      background-color: $white-color;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: $white-color;
+        bottom: 1rem;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: $white-color;
+        top: 1rem;
+      }
+    }
+  }
+
+  cursor: pointer;
+  @include transition($t);
+  
+  .btn-menu__box {
+    position: absolute;
+    transition: all 0.4s;
+  }
+
+  .btn-menu__hover {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    padding: 3rem 1rem 1rem;
+    transition: all 0.4s;
+
+    .hover-logo {
+      margin-left: 8rem;
+      width: 10rem;
+      height: 7.5rem;
+      img {
+        width: 100%;
+      }
+    }
+    .hover-text {
+      margin-right: 13rem;
+      margin-top: 2rem;
+      @include text(1.6rem, $eb-bold, 0, $black-color, uppercase);
+      position: relative;
+      &::after {
+        content: "";
+        position: absolute;
+        left: 8rem;
+        width: 0;
+        height: 2px;
+        background-color: $black-color;
+        transition: all 0.4s;
+      }
+    }
+  }
+
+  &:hover {
+    width: 22rem;
+    background-color: $white-color;
+
+    .btn-menu__box {
+      opacity: 0;
+    }
+
+    .btn-menu__hover {
+      opacity: 1;
+      transition: all 0.4s;
+
+      .hover-logo {
+        transform: translateX(0);
+        transition: all 0.4s
+      }
+
+      .hover-text {
+        &::after {
+          width: 10rem;
+          transition: all 0.4s;
+        }
+      }
+    }
+  }
+}
+
+.--anchor-font {
+  @include text(12px, arial, 4rem, $black-color, uppercase);
+  letter-spacing: 1.6px;
+  font-weight: bold;
+  i {
+    img {
+      margin-bottom: 1px;
+    }
+  }
+}
+
+.text-top {
+  width: 100%;
+  top: 0;
+  padding: 5rem 4rem;
+  position: absolute;
+  z-index: 1;
+  user-select: none;
+}
+.anchor-text-top {
+  @include text(12px, arial, 3rem, $black-color, uppercase);
+  font-weight: bold;
+  letter-spacing: 1.6px;
+  margin-right: 3rem;
+  padding: 2rem 0;
+  @include transition($t);
+  i {
+    display: inline-block;
+    width: 2rem;
+    margin-left: 1rem;
+    position: relative;
+    @include transition($t);
+  }
+}
+.--homeward:hover {
+  color: $white-color;
+}
+.--share-btn:hover {
+  color: $white-color;
+  i {
+    @include transform(translateX(1rem));
+    filter: invert(1);
+  }
+}
+.--homeward-orange:hover {
+  color: $orange-dark-color;
+}
+.--share-btn-orange:hover {
+  color: $orange-dark-color;
+  i {
+    @include transform(translateX(1rem));
+    filter: invert(54%) sepia(67%) saturate(451%) hue-rotate(359deg) brightness(92%) contrast(95%);
+  }
+}
+
+.--section-padding {
+  padding: 5rem 0;
+}
+
+
+//products page product carousel
+.category-group {
+  position: relative;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid rgba($black-color, 0.2);
+  .category-items {
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+  }
+}
+.item-btn {
+  max-width: 14rem;
+}
+.category-btn-hover {
+  display: flex;
+  i {
+    display: inline-block;
+    width: 2rem;
+    margin-right: 0.8rem;
+    position: relative;
+    @include transition($t);
+     img {
+      @include transition($t);
+    }
+  }
+  span {
+    @include transition($t);
+  }
+  &:hover {
+    i {
+      @include transform(translateX(7rem));
+      img {
+        filter: invert(54%) sepia(67%) saturate(451%) hue-rotate(359deg) brightness(92%) contrast(95%);
+      }
+    }
+    span {
+      @include transform(translateX(-3rem));
+      color: $orange-color;
+    }
+  }
+}
+
+.more-btn {
+  font-size: 16px;
+  display: inline-block;
+  width: 2rem;
+  position: relative;
+  @include transition($t);
+  img {
+    width: 2rem;
+  }
+}
+.item-img {
+  position: relative;
+  width: 100%;
+  height: 25rem;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  @include transition($t);
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    @include transition($t);
+  }
+  &:hover {
+    .img-hover-anchor {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 3;
+    }
+    img {
+      @include transform(scale(1.1));
+    }
+  }
+}
+.img-hover-anchor {
+  display: block;
+}
+
+.item-description {
+  width: 100%;
+
+  h2 {
+    @include text(18px, arial, 4rem, $black-color, uppercase);
+    letter-spacing: -0.4px;
+    @include transition($t);
+  }
+  p {
+    @include text(14px, arial, 4rem, $black-color, uppercase);
+    letter-spacing: 1.6px;
+  }
+}
+.bottom-control {
+  position: absolute;
+  bottom: 1rem;
+  user-select: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 0.2rem solid $black-color;
+  cursor: pointer;
+  &__btn {
+    padding: 0.8rem 2.5rem;
+    @include transition(0.4s);
+    &:hover {
+      background-color: rgba($orange-color, 0.4);
+      @include transition(0.4s);
+    }
+  }
+  .--prev {
+    border-right: 0.1rem solid $black-color;
+    img {
+      transform: rotate(180deg);
+    }
+  }
+  .--next {
+    border-left: 0.1rem solid $black-color;
+  }
+}
+
+.--home {
+  bottom: 3rem;
+  right: 3rem;
+  border: 0.2rem solid $white-color;
+  .--prev {
+    border-right: 0.1rem solid $white-color;
+    img {
+      transform: rotate(180deg);
+      filter: invert(1);
+    }
+  }
+  .--next {
+    border-left: 0.1rem solid $white-color;
+    img {
+      filter: invert(1);
+    }
+  }
+}
+.--stick-to-right {
+  right: 0;
+}
+
+.items-carousel {
+  .items-carousel__cell {
+    width: calc(100% / 3 - var(--gap));
+    margin-right: var(--gap);
+    // margin: 0 calc(var(--gap) / 2);
+  }
+}
+
+.nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba($black-color, 0.5);
+  opacity: 0;
+  user-select: none;
+  z-index: -1;
+  @include transition($t);
+  
+}
+.nav-overlay__active {
+  z-index: 2;
+  opacity: 1;
+}
+
+.article-item {
+  user-select: none;
+  @include transition($t);
+  .article-content {
+    .article-title {
+      display: block;
+      min-width: 4rem;
+      margin: 2rem 0;
+      @include transition($t);
+      &:hover {
+        h3 {
+          color: $orange-color;
+        }
+      }
+    }
+    h3 {
+      @include text(1.5rem, arial, null, $black-color, uppercase);
+      @include transition($t);
+      font-weight: 600;
+      @include overtext(1);
+    }
+    p {
+      @include text(1.3rem, arial, null, $black-color, normal);
+      @include overtext(2);
+    }
+  }
+  .thumbnail {
+    overflow: hidden;
+    position: relative;
+    img {
+      @include transition($t);
+    }
+    &:hover {
+      img {
+        @include transform(scale(1.1));
+      }
+      .hover-anchor {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 3;
+      }
+    }
+  }
+}
+
+.color-themes {
+  color: #c4ac88;
+  color: #c95a72;
+  color: #6A92EB;
+  color: #26A98B;
+  color: #9c63c2;
+
+  color: #ddc49f;
+  color: #B097BF;
+  color: #9EAC9C;
+  color: #996674;
+  color: #86B0BC;
+  color: #AABDA6;
+  color: #c76969;
+}

@@ -1,0 +1,121 @@
+.contact {
+  background-image: url(../../../img/layer-contact.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+  padding: 0 !important;
+  h3 {
+    @include text(12px, arial, 3rem, $orange-color, uppercase);
+  }
+  p {
+    @include text(12px, arial, 2rem, $white-color, normal);
+    letter-spacing: 1.6px;
+  }
+}
+.contact-information {
+  padding-top: 8rem;
+}
+.details {
+  display: flex;
+  padding: 4rem 8rem;
+}
+.details-left {
+  max-width: 40%;
+  margin-right: 15%;
+}
+.details-right {
+  display: grid;
+  grid-template-areas: 
+  "hotline email"
+  "address address";
+}
+.hotline {
+  grid-area: hotline;
+}
+.email {
+  grid-area: email;
+}
+.address {
+  grid-area: address;
+}
+.--margin-bottom {
+  margin-bottom: 2rem;
+}
+label {
+  display: block;
+  @include text(12px, arial, 2rem, $white-color, normal);
+  letter-spacing: 1.6px;
+}
+.form {
+  padding: 0 8rem;
+  padding-bottom: 5rem;
+}
+.form-field {
+  display: flex;
+  input {
+    display: block;
+    background: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid $orange-color;
+    width: 100%;
+    height: 3rem;
+    margin-bottom: 2rem;
+    @include text(12px, arial, 2rem, $white-color, normal);
+    letter-spacing: 1.6px;
+  }
+  textarea {
+    background: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid $orange-color;
+    width: 100%;
+    height: 3rem;
+    @include text(12px, arial, 2rem, $white-color, normal);
+    letter-spacing: 1.6px;
+  }
+}
+.form-left {
+  width: 45%;
+  margin-right: 10%;
+}
+.form-right {
+  width: 45%;
+}
+
+@include sm {
+  .contact-information {
+    padding: 4rem 0;
+    
+  }
+  .details {
+    flex-direction: column;
+    padding: 0;
+  }
+  .details-left {
+    max-width: 100%;
+    margin: 0;
+  }
+  .details-right {
+    display: grid;
+    grid-template-areas: 
+    "hotline"
+    "email"
+    "address";
+  }
+  .form {
+    padding: 2rem 0;
+  }
+  .form-field {
+    flex-direction: column;
+  }
+  .form-left,
+  .form-right {
+    width: 100%;
+  }
+}
+
+
+
+
