@@ -62,7 +62,7 @@ label {
     width: 100%;
     height: 3rem;
     margin-bottom: 2rem;
-    @include text(12px, arial, 2rem, $white-color, normal);
+    @include text(12px, arial, 2rem, $orange-color, normal);
     letter-spacing: 1.6px;
   }
   textarea {
