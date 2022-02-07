@@ -1,18 +1,4 @@
-.contact {
-  background-image: url(../../../img/layer-contact.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-  position: relative;
-  padding: 0 !important;
-  h3 {
-    @include text(12px, arial, 3rem, $orange-color, uppercase);
-  }
-  p {
-    @include text(12px, arial, 2rem, $white-color, normal);
-    letter-spacing: 1.6px;
-  }
-}
+
 .contact-information {
   padding-top: 8rem;
 }
